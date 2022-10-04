@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -103,6 +105,52 @@ public class Topic_05_Web_Browser {
 	@Test
 	public void TC_02_Element() {
 		// Các hàm tương tác với Element thông qua element
+		//Cách 1: Khai báo biến và dùng lại
+		
+		//Cách 2: Khai báo biến cùng với kiểu dữ liệu trả về của hàm findElement
+		
+		//Xóa dữ liệu trong 1 field dạng editable (có thể nhập)
+		//Textbox/ Text area/ Editable dropdown
+		element.clear();
+		//Nhập dữ liệu vào field dạng editable
+		element.sendKeys("");
+		element.sendKeys(Keys.ENTER);
+		
+		//Trả về giá trị nằm trong attribute của element
+		element.getAttribute("");
+		//Trả về thuộc tính css của element này
+		//font/ size/ color
+		element.getCssValue("");
+		
+		//Test GUI: point/ rectangle/ size (Visualize testing)
+		element.getLocation();
+		element.getRect();
+		element.getSize();
+		
+		//Chụp hình và attach vào html report
+		element.getScreenshotAs(OutputType.FILE);
+		//Trả về thẻ html của element
+		element.getTagName();
+		
+		
+		element.getText();
+		
+		element.isDisplayed();//Hiển thị: true, không hiển thị: false
+		
+		//Trả về giá trị đúng hoặc sai của 1 element có thể thao tác được hay không
+		//Enabled: true
+		//Bị disable: false
+		element.isEnabled();
+		
+		//trả về giá trị đúng hoặc sai của 1 element đã được chọn rồi hay chưa
+		//checkbox/ radio
+		element.isSelected();//Chọn rồi: true, chưa chọn: false
+		
+		//dropdown: có 1 thư viện riêng để xử lý (Select)
+		
+		//Chỉ làm việc được với form (register/login...form)
+		element.submit();
+		
 	}
 
 	@Test
