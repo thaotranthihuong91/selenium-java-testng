@@ -16,7 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 
-public class Topic_05_Web_Browser2 {
+public class Topic_05_Web_Browser_Element_B2 {
 	// Khai báo
 	WebDriver driver;
 	WebElement element;
