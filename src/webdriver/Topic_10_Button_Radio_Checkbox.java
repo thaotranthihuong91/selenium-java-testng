@@ -18,6 +18,7 @@ public class Topic_10_Button_Radio_Checkbox {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
+	JavascriptExecutor jse;
 
 	@BeforeClass
 	public void beforeClass() {
@@ -29,6 +30,8 @@ public class Topic_10_Button_Radio_Checkbox {
 
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		jse = (JavascriptExecutor)driver;
 	}
 
 	
@@ -105,34 +108,33 @@ public class Topic_10_Button_Radio_Checkbox {
 		driver.get("https://demos.telerik.com/kendo-ui/checkbox/index");
 		//Chọn checkbox và verify
 		
-		checkToCheckboxOrRadio(By.xpath("//label[contains(text(),'Dual-zone air conditioning')]/preceding-sibling::input"));
+		checkToCheckboxOrRadio(jse, By.xpath("//label[contains(text(),'Dual-zone air conditioning')]/preceding-sibling::input"));
 		Assert.assertTrue(driver.findElement(By.xpath("//label[contains(text(),'Dual-zone air conditioning')]/preceding-sibling::input")).isSelected());
 		
 		//Bỏ chọn checkbox và verify
-		uncheckToCheckbox(By.xpath("//label[contains(text(),'Dual-zone air conditioning')]/preceding-sibling::input"));
+		uncheckToCheckbox(jse, By.xpath("//label[contains(text(),'Dual-zone air conditioning')]/preceding-sibling::input"));
 		Assert.assertFalse(driver.findElement(By.xpath("//label[contains(text(),'Dual-zone air conditioning')]/preceding-sibling::input")).isSelected());
 	
 		driver.get("http://demos.telerik.com/kendo-ui/styling/radios");
-		checkToCheckboxOrRadio(By.xpath("//label[contains(text(),'2.0 Petrol, 147kW')]/preceding-sibling::input"));
+		checkToCheckboxOrRadio(jse, By.xpath("//label[contains(text(),'2.0 Petrol, 147kW')]/preceding-sibling::input"));
 		//driver.findElement(By.xpath("//label[contains(text(),'2.0 Petrol, 147kW')]/preceding-sibling::input")).click();
 		Assert.assertTrue(driver.findElement(By.xpath("//label[contains(text(),'2.0 Petrol, 147kW')]/preceding-sibling::input")).isSelected());
 	}
 	
-	public void checkToCheckboxOrRadio(By by) {
+	public void checkToCheckboxOrRadio(JavascriptExecutor jse, By by) {
 		if(!driver.findElement(by).isSelected()) {
-			clickElementByJS(by);
+			clickElementByJS(jse, by);
 		}
 	}
 	
-	public void uncheckToCheckbox(By by) {
+	public void uncheckToCheckbox(JavascriptExecutor jse, By by) {
 		if(driver.findElement(by).isSelected()) {
-			clickElementByJS(by);
+			clickElementByJS(jse, by);
 		}
 	}
 	
-	public void clickElementByJS(By by) {
-		WebElement ele = driver.findElement(by);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+	public void clickElementByJS(JavascriptExecutor jse, By by) {
+		WebElement ele = driver.findElement(by);		
 		jse.executeScript("arguments[0].click()", ele);
 	}
 
