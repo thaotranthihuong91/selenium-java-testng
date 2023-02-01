@@ -42,7 +42,7 @@ public class Topic_13_Action_PartI {
 	}
 
 	
-	public void TC_02_() {
+	public void TC_02_Myntra() {
 		driver.get("http://www.myntra.com/");
 		action.moveToElement(driver.findElement(By.xpath("//div[@class='desktop-navLink']/a[text()='Kids']"))).perform();
 		sleepInSecond(3);
@@ -51,7 +51,7 @@ public class Topic_13_Action_PartI {
 	}
 
 	@Test
-	public void TC_03_() {
+	public void TC_03_Fahasa() {
 		driver.get("https://www.fahasa.com/");
 		sleepInSecond(5);
 		
