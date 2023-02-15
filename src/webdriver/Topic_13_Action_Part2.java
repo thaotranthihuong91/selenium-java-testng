@@ -28,7 +28,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_13_Action_PartI2 {
+public class Topic_13_Action_Part2 {
 	WebDriver driver;
 	Actions action;
 	JavascriptExecutor jsExecutor;
