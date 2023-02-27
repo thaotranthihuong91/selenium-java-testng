@@ -13,7 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Topic_14_Popup_Dialog {
+public class Topic_14_Popup_Fixed_InDOM {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
 	String osName = System.getProperty("os.name");
@@ -84,11 +84,6 @@ public class Topic_14_Popup_Dialog {
 		
 		//Verify undisplayed
 		Assert.assertFalse(driver.findElement(loginPopup).isDisplayed());
-	}
-
-	
-	public void TC_03_() {
-		
 	}
 
 	@AfterClass

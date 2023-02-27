@@ -14,4 +14,10 @@ public class Topic_05_Random {
 		System.out.println(rand.nextInt(999));
 		System.out.println(rand.nextLong());
 	}
+	
+	public static int getRandomNumber() {
+		Random ran = new Random();
+		return ran.nextInt(99999);
+	}
+	
 }
